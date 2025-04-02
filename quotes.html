@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes Generator</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: pink;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 40px;
+        }
+        
+        h1 {
+            color: #3498db;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .quote-container {
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        #quotes {
+            font-size: 1.6rem;
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        #author {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #3498db;
+            margin: 10px 0;
+        }
+        
+        #tags {
+            background-color: #f1f5f9;
+            padding: 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(52, 152, 219, 0.3);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        .footer {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: #95a5a6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Judith's Quotes</h1>
+        
+        <div class="quote-container">
+            <h3 id="quotes">Click the button to get an inspiring quote</h3>
+            <h5 id="author"></h5>
+            <p id="tags"></p>
+        </div>
+        
+        <button onclick="getQuote()">Get New Quote</button>
+        
+        <div class="footer">
+            <p>Powered by Judith Quotes</p>
+        </div>
+    </div>
+
+    <!-- <script src="assets/js/quotes.js"></script>
+    <script>
+        // In case the external JS file doesn't load properly
+        if (typeof getQuote !== 'function') {
+            async function getQuote() {
+                const apiUrl = "https://api.quotable.io/random";
+                
+                try {
+                    const response = await axios.get(apiUrl);
+                    const data = response.data;
+
+                    document.getElementById("quotes").innerHTML = data.content;
+                    document.getElementById("author").innerHTML = data.author;
+                    
+                    // Format tags as a comma-separated list
+                    const tagsFormatted = data.tags.join(", ");
+                    document.getElementById("tags").innerHTML = tagsFormatted;
+                } catch(error) {
+                    console.log(error);
+                    document.getElementById("quotes").innerHTML = "Failed to load quote. Please try again.";
+                    document.getElementById("author").innerHTML = "";
+                    document.getElementById("tags").innerHTML = "";
+                }
+            }
+
+            // Load a quote when the page first loads
+            document.addEventListener("DOMContentLoaded", getQuote);
+        }
+    </script> -->
+    <script src="assets/js/quotes.js"></script>
+</body>
+</html>
